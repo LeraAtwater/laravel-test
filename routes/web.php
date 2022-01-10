@@ -27,4 +27,6 @@ Route::get('/posts/{id}', function($id) {
 
 Route::get('/recent-posts/{days_ago?}', function($daysAgo = 20) {
   return 'Posts from ' . $daysAgo . ' days ago';
-})->name('posts.recent.index');
+})->where([
+  'daysAgo' => '[0-9]+'
+])->name('posts.recent.index');
