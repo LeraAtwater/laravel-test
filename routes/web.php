@@ -22,25 +22,30 @@ use Illuminate\Support\Facades\Route;
 // })->name('home.contact');
 
 //shortcut for Route function that return simple html and no extras
+Route::view('/', 'home.index')->name('home.index');
 
-Route::view('/', 'home.index')->name('home.index');;
+Route::view('/contact', 'home.contact')->name('contact.index');
 
-Route::view('/contact', 'home.contact')->name('contact.index');;
+$posts = [
+  1 => [
+    'title' => 'Intro to Laravel',
+    'content' => 'This is a short intro to Laravel',
+    'is_new' => true,
+    'has_comments' => true
+  ],
+  2 => [
+    'title' => 'Intro to PHP',
+    'content' => 'This is a short intro to PHP',
+    'is_new' => false
+  ]
+];
 
-Route::get('/posts/{id}', function ($id) {
-  $posts = [
-    1 => [
-      'title' => 'Intro to Laravel',
-      'content' => 'This is a short intro to Laravel',
-      'is_new' => true,
-      'has_comments' => true
-    ],
-    2 => [
-      'title' => 'Intro to PHP',
-      'content' => 'This is a short intro to PHP',
-      'is_new' => false
-    ]
-  ];
+Route::get('/posts', function() use($posts) {
+  //shortcut is: compact($posts) ===  ['posts' => $posts])
+  return view('posts.index', ['posts' => $posts]);
+});
+
+Route::get('/posts/{id}', function ($id)  use($posts) {
 
   abort_if(!isset($posts[$id]), 404);
 
