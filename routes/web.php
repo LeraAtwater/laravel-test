@@ -37,6 +37,17 @@ $posts = [
     'title' => 'Intro to PHP',
     'content' => 'This is a short intro to PHP',
     'is_new' => false
+  ],
+  3 => [
+    'title' => 'A third post',
+    'content' => 'This is the third in the array',
+    'is_new' => true,
+    'has_comments' => true
+  ],
+  4 => [
+    'title' => 'Post No. 4',
+    'content' => 'This is the last post',
+    'is_new' => false
   ]
 ];
 
