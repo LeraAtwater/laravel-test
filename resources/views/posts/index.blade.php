@@ -4,9 +4,10 @@
 
 @section('content')
 
-  @foreach ($posts as $post)
+  @foreach ($posts as $key => $post)
+  {{-- $key is the index number --}}
     <div>
-      <h2>{{ $post['title'] }}</h2>
+      <h2>{{ $key }}. {{ $post['title'] }}</h2>
     </div>
   @endforeach
 
