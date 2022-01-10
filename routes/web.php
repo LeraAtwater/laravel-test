@@ -13,13 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-  return view('home.index', []);
-})->name('home.index');
+// Route::get('/', function () {
+//   return view('home.index', []);
+// })->name('home.index');
 
-Route::get('/contact', function () {
-  return view('home.contact', []);
-})->name('home.contact');
+// Route::get('/contact', function () {
+//   return view('home.contact', []);
+// })->name('home.contact');
+
+//shortcut for Route function that return simple html and no extras
+
+Route::view('/', 'home.index')->name('home.index');;
+
+Route::view('/contact', 'home.contact')->name('contact.index');;
 
 Route::get('/posts/{id}', function ($id) {
   $posts = [
