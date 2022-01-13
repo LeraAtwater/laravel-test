@@ -68,3 +68,9 @@ Route::get('/recent-posts/{days_ago?}', function ($daysAgo = 20) {
 })->where([
   'daysAgo' => '[0-9]+'
 ])->name('posts.recent.index');
+
+Route::get('/fun/responses', function() use($posts) {
+  return response($posts, 201)
+  ->header('Content-Type', 'application/json')
+  ->cookie('MY_COOKIE', 'Lera', 3600);
+});

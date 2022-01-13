@@ -3,7 +3,7 @@
     {{-- @break($key == 2) --}}
     {{-- render after certain key --}}
     {{-- @continue($key == 1) --}}
-    @if ($loop->even)
+  @if ($loop->even)
     <div><h2>{{ $key }}. {{ $post['title'] }}</h2></div>
   @else
   <div style="background-color: silver"><h2>{{ $key }}. {{ $post['title'] }}</h2></div>
